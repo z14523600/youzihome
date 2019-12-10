@@ -1,0 +1,144 @@
+#用户表
+DROP TABLE IF EXISTS `sys_user`;
+CREATE TABLE `sys_user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) DEFAULT NULL COMMENT '登录名',
+  `pwd` varchar(255) DEFAULT NULL COMMENT '密码',
+  `true_name` varchar(255) NOT NULL COMMENT '真名',
+  `nick_name` varchar(255) DEFAULT NULL COMMENT '昵称',
+  `gender` int(11) DEFAULT NULL COMMENT '性别',
+  `birthday` datetime DEFAULT NULL COMMENT '生日',
+  `profile_pic` varchar(255) DEFAULT NULL COMMENT '头像地址',
+  `phone` int(255) DEFAULT NULL COMMENT '手机',
+  `email` varchar(255) DEFAULT NULL COMMENT '邮箱',
+  `address` varchar(255) DEFAULT NULL COMMENT '地址',
+  `self_intro` varchar(255) DEFAULT NULL COMMENT '自我介绍',
+  `role_id` int(11) DEFAULT NULL COMMENT '角色',
+  `state` int(11) DEFAULT NULL COMMENT '状态',
+  `createdate` datetime DEFAULT NULL COMMENT '创建日期',
+  `createuser` int(11) DEFAULT NULL COMMENT '创建人',
+  `reamark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#菜单表
+DROP TABLE IF EXISTS `sys_menu`;
+CREATE TABLE `sys_menu` (
+  `menu_id` int(11) NOT NULL AUTO_INCREMENT,
+	`menu_code` varchar(20) DEFAULT NULL COMMENT '菜单编号',
+  `menu_name` varchar(50) DEFAULT NULL COMMENT '菜单名',
+  `parent_id` int(11) DEFAULT NULL COMMENT '父菜单',
+  `state` int(11) DEFAULT NULL COMMENT '状态',
+  `createdate` datetime DEFAULT NULL COMMENT '创建日期',
+  `createuser` int(11) DEFAULT NULL COMMENT '创建人',
+  `reamark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`menu_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#角色表
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role` (
+  `role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(50) DEFAULT NULL COMMENT '角色名',
+  `state` int(11) DEFAULT NULL COMMENT '状态',
+  `createdate` datetime DEFAULT NULL COMMENT '创建日期',
+  `createuser` int(11) DEFAULT NULL COMMENT '创建人',
+  `reamark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#角色菜单表
+DROP TABLE IF EXISTS `sys_rolemenu`;
+CREATE TABLE `sys_rolemenu` (
+  `rm_id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) DEFAULT NULL COMMENT '角色id',
+  `menu_id` int(11) DEFAULT NULL COMMENT '菜单id',
+  `state` int(11) DEFAULT NULL COMMENT '状态',
+  `createdate` datetime DEFAULT NULL COMMENT '创建日期',
+  `createuser` int(11) DEFAULT NULL COMMENT '创建人',
+  `reamark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`rm_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+#日志表
+DROP TABLE IF EXISTS `sys_log`;
+CREATE TABLE `sys_log` (
+  `log_id` int(11) NOT NULL AUTO_INCREMENT,
+  `page_url` varchar(50) DEFAULT NULL COMMENT '访问页面',
+  `user_id` int(11) DEFAULT NULL COMMENT '状态',
+  `ip` int(11) DEFAULT NULL COMMENT 'ip地址',
+  `createdate` datetime DEFAULT NULL COMMENT '创建日期',
+  `reamark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`log_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#相册
+DROP TABLE IF EXISTS `yz_gallery`;
+CREATE TABLE `yz_gallery` (
+  `gallery_id` int(11) NOT NULL AUTO_INCREMENT,
+  `glery_name` varchar(100) DEFAULT NULL COMMENT '照片集',
+  `title` varchar(100) DEFAULT NULL COMMENT '主题',
+	`description` varchar(500) DEFAULT NULL COMMENT '描述',
+  `city` varchar(100) DEFAULT NULL COMMENT '城市',
+  `aboutdate` datetime DEFAULT NULL COMMENT '相册日期',   
+  `createdate` datetime DEFAULT NULL COMMENT '创建日期',
+  `reamark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`gallery_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#照片详情
+DROP TABLE IF EXISTS `yz_photo`;
+CREATE TABLE `yz_photo` (
+  `photo_id` int(11) NOT NULL AUTO_INCREMENT,
+  `gallery_id` varchar(100) DEFAULT NULL COMMENT '相册id',
+  `title` varchar(100) DEFAULT NULL COMMENT '主题',
+	`description` varchar(500) DEFAULT NULL COMMENT '描述',
+  `photo_path` varchar(500) DEFAULT NULL COMMENT '照片路径',
+  `aboutdate` datetime DEFAULT NULL COMMENT '照片日期',   
+  `createdate` datetime DEFAULT NULL COMMENT '创建日期',
+  `reamark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`photo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+#标签字典
+DROP TABLE IF EXISTS `dic_tag`;
+CREATE TABLE `dic_tag` (
+  `tag_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tag_name` varchar(100) DEFAULT NULL COMMENT '相册id',
+  `createdate` datetime DEFAULT NULL COMMENT '创建日期',
+  `reamark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`tag_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#相册标签关联
+DROP TABLE IF EXISTS `yz_gallery_tag`;
+CREATE TABLE `yz_gallery_tag` (
+  `gt_id` int(11) NOT NULL AUTO_INCREMENT,
+	`gallery_id` int(11) DEFAULT NULL COMMENT '相册id',
+	`tag_id` int(11) DEFAULT NULL COMMENT '标签id',
+  `createdate` datetime DEFAULT NULL COMMENT '创建日期',
+	`createuser` int(11) DEFAULT NULL COMMENT '创建人',
+  `reamark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`gt_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#留言板
+DROP TABLE IF EXISTS `yz_note`;
+CREATE TABLE `yz_note` (
+  `note_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL COMMENT '用户id',
+  `title` varchar(100) DEFAULT NULL COMMENT '主题',
+	`content` varchar(500) DEFAULT NULL COMMENT '内容',
+  `createdate` datetime DEFAULT NULL COMMENT '创建日期',
+  `reamark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`note_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+
