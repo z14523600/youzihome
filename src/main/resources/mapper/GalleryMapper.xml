@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GalleryMapper">
+	
+	<!-- 获取相册集 -->
+	<select id="getGalleryList" parameterType="HashMap" resultType="HashMap">
+		select *,DATE_FORMAT(aboutdate,'%Y %m') as aboutdate_std from yz_gallery where state=1;
+	</select>
+
+	<!-- 根据相册Id获取照片集 -->
+	<select id="getPhotoByGalleryId" parameterType="HashMap" resultType="HashMap">
+		select * from yz_photo where state=1 and gallery_id=#{gallery_id};
+	</select>
+
+	<!-- 删除照片通过id -->
+	<select id="delPhotoById" parameterType="HashMap" resultType="HashMap">
+		update yz_photo set state=0 where photo_id=#{photo_id};
+	</select>
+
+	
+</mapper>
