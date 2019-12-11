@@ -13,9 +13,14 @@
 	</select>
 
 	<!-- 删除照片通过id -->
-	<select id="delPhotoById" parameterType="HashMap" resultType="HashMap">
+	<update id="delPhotoById" parameterType="HashMap" >
 		update yz_photo set state=0 where photo_id=#{photo_id};
-	</select>
+	</update>
 
+	<!--插入上传照片-->
+	<insert id="savePhotoByGalleryId" parameterType="HashMap">
+		insert into yz_photo(gallery_id,title,description,photo_path,aboutdate,createdate,state)
+		values(3,'','',#{name},null,SYSDATE(),1);
+	</insert>
 	
 </mapper>

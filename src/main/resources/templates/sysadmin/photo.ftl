@@ -4,8 +4,8 @@
 
         <#list photoList as pl>
             <li>
-                <a href="/static/gallery/3/${pl.photo_path}" data-rel="colorbox">
-                    <img width="150" height="150" alt="150x150" src="/static/gallery/3/${pl.photo_path}" />
+                <a href="${pl.photo_path}" data-rel="colorbox">
+                    <img width="150" height="150" alt="150x150" src="${pl.photo_path}" />
                     <div class="tags">
                     <span class="label-holder">
                         <span class="label label-info arrowed">fountain</span>
@@ -62,7 +62,7 @@
 
 <#--上传按钮-->
 <p>
-    <button class="btn btn-white btn-info btn-bold">
+    <button class="btn btn-white btn-info btn-bold" onclick="savePhotoByGalleryId();">
         <i class="ace-icon fa fa-check-square-o bigger-120 blue"></i>
         Commit
     </button>
@@ -133,12 +133,13 @@
     </div>
 </div>
 
-
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
+    var photo_arry=[];
     jQuery(function($){
         try {
             Dropzone.autoDiscover = false;
+            //定义上传照片数组
 
             var myDropzone = new Dropzone('#dropzone', {
                 previewTemplate: $('#preview-template').html(),
@@ -148,7 +149,7 @@
 
                 thumbnailHeight: 120,
                 thumbnailWidth: 120,
-                maxFilesize: 3,
+                maxFilesize: 6,
 
                 addRemoveLinks : true,
                 //dictRemoveFile: 'Remove',
@@ -175,8 +176,10 @@
                         console.log('ok');
                         file.status = Dropzone.SUCCESS;
                         console.log(data)
+
+                        photo_arry.push(data);
                         //上传到数据库
-                        getJsonAJ("sysadmin/savePhotoByGalleryId",{gallery_id:3},"添加成功！")
+                        //getJsonAJ("sysadmin/savePhotoByGalleryId",{gallery_id:3},"添加成功！")
 
                         //self.emit("success", file, 'success', null);
                         //self.emit("complete", file);
@@ -265,21 +268,16 @@
         }
 
     });
+
+    //上传到数据库
+    function savePhotoByGalleryId(){
+        console.log(JSON.stringify(photo_arry))
+        getJsonAJ("/sysadmin/savePhotoByGalleryId",{photo_arry:JSON.stringify(photo_arry)},"添加成功！")
+    }
+    function delPhotoByGalleryId(photo_arry){
+        getJsonAJ("/sysadmin/savePhotoByGalleryId",{photo_arry:3},"添加成功！")
+    }
+
 </script>
 
 
-<#--
-<script>
-    jQuery(function($) {
-        var myDropzone = new Dropzone("#dropz", {
-            url: "/upload",
-            dictDefaultMessage: '拖动文件至此或者点击上传', // 设置默认的提示语句
-            paramName: "dropzFile", // 传到后台的参数名称
-            init: function () {
-                this.on("success", function (file, data) {
-                    // 上传成功触发的事件
-                });
-            }
-        });
-    });
-</script>-->

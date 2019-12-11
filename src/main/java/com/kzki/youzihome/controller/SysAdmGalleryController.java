@@ -3,6 +3,8 @@ package com.kzki.youzihome.controller;
 import com.kzki.youzihome.entity.MapperData;
 import com.kzki.youzihome.service.BaseService;
 import com.kzki.youzihome.util.DataMap;
+import com.kzki.youzihome.util.UploadResp;
+import com.kzki.youzihome.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 @RestController
 public class SysAdmGalleryController {
@@ -54,14 +58,24 @@ public class SysAdmGalleryController {
         return delPhotoStatus==true?"success":"error";
     }
 
-
+    //上传后保存图片
     @ResponseBody
-    @RequestMapping("/sysadmin/upload")
-    public String upload(HttpServletRequest request){
-        DataMap dm=new DataMap(request);
-        boolean delPhotoStatus=baseService.executeBaseData("GalleryMapper.delPhotoById",dm,"delete");
+    @RequestMapping("/sysadmin/savePhotoByGalleryId")
+    public String savePhotoByGalleryId(HttpServletRequest request){
 
-        return delPhotoStatus==true?"success":"error";
+        ArrayList<MapperData> mdlist=new ArrayList<MapperData>();
+        String photoArryJson=request.getParameter("photo_arry");
+        List<UploadResp> urlist=JsonUtil.jsonToList((String) photoArryJson,UploadResp.class);
+        for(UploadResp ur:urlist){
+            DataMap dm=new DataMap();
+            dm.put("name",ur.getName());
+            mdlist.add(new MapperData("save","GalleryMapper.savePhotoByGalleryId",dm));
+        }
+
+        boolean savePhotoStatus=baseService.executeBaseDataTran(mdlist);
+
+        return savePhotoStatus==true?"success":"error";
+
     }
 
 }

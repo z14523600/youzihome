@@ -11,4 +11,13 @@ public class MapperData {
 
     public DataMap dm;
 
+    public MapperData(){};
+
+    public MapperData(String opertion,String mapperHref,DataMap dm)
+    {
+        this.opertion=opertion;
+        this.mapperHref=mapperHref;
+        this.dm=dm;
+    };
+
 }
