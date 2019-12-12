@@ -62,12 +62,13 @@ public class SysAdmGalleryController {
     @ResponseBody
     @RequestMapping("/sysadmin/savePhotoByGalleryId")
     public String savePhotoByGalleryId(HttpServletRequest request){
-
+        String gallery_id=request.getParameter("gallery_id");
         ArrayList<MapperData> mdlist=new ArrayList<MapperData>();
         String photoArryJson=request.getParameter("photo_arry");
         List<UploadResp> urlist=JsonUtil.jsonToList((String) photoArryJson,UploadResp.class);
         for(UploadResp ur:urlist){
             DataMap dm=new DataMap();
+            dm.put("gallery_id",gallery_id);
             dm.put("name",ur.getName());
             mdlist.add(new MapperData("save","GalleryMapper.savePhotoByGalleryId",dm));
         }

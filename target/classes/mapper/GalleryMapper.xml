@@ -20,7 +20,7 @@
 	<!--插入上传照片-->
 	<insert id="savePhotoByGalleryId" parameterType="HashMap">
 		insert into yz_photo(gallery_id,title,description,photo_path,aboutdate,createdate,state)
-		values(3,'','',#{name},null,SYSDATE(),1);
+		values(#{gallery_id},'','',#{name},null,SYSDATE(),1);
 	</insert>
 	
 </mapper>

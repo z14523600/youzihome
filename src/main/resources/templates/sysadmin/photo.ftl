@@ -1,3 +1,5 @@
+
+
 <#--照片列表-->
 <div>
     <ul class="ace-thumbnails clearfix">
@@ -68,7 +70,7 @@
     </button>
 
 
-    <button class="btn btn-white btn-default btn-round">
+    <button class="btn btn-white btn-default btn-round" onclick="delPhotoInDropZone();">
         <i class="ace-icon fa fa-times red2"></i>
         Cancel
     </button>
@@ -137,6 +139,7 @@
 <script type="text/javascript">
     var photo_arry=[];
     jQuery(function($){
+        //alert($("#hd_gallery_id").val())
         try {
             Dropzone.autoDiscover = false;
             //定义上传照片数组
@@ -144,6 +147,7 @@
             var myDropzone = new Dropzone('#dropzone', {
                 previewTemplate: $('#preview-template').html(),
                 url: "/upload/image",
+                params: {gallery_id: $("#hd_gallery_id").val()},
                 method: "post",  //也可用put
                 paramName: "file", //默认为file
 
@@ -202,15 +206,16 @@
                         }
                     });
                     this.on("removedfile",function(file){
+                        //debugger
                         //删除文件时触发的方法
-                        var file_id = angular.element(appElement).scope().file_id;
+                       /* var file_id = angular.element(appElement).scope().file_id;
                         if (file_id){
                             $.post('/admin/del/'+ file_id,{'_method':'DELETE'},function (data) {
                                 console.log('删除结果:'+data.message);
                             })
                         }
                         angular.element(appElement).scope().file_id = 0;
-                        document.querySelector('div .dz-default').style.display = 'block';
+                        document.querySelector('div .dz-default').style.display = 'block';*/
                     });
                 }
 
@@ -271,11 +276,20 @@
 
     //上传到数据库
     function savePhotoByGalleryId(){
+        if(photo_arry.length==0) {
+            alert("还未上传");
+            return false;
+        }
         console.log(JSON.stringify(photo_arry))
-        getJsonAJ("/sysadmin/savePhotoByGalleryId",{photo_arry:JSON.stringify(photo_arry)},"添加成功！")
+        getJsonAJ("/sysadmin/savePhotoByGalleryId",{photo_arry:JSON.stringify(photo_arry),gallery_id:$("#hd_gallery_id").val()},"添加成功！")
+        $(".dz-complete").remove();
+        photo_arry=[];
+        loadPhotoDtl($("#hd_gallery_id").val());
     }
-    function delPhotoByGalleryId(photo_arry){
-        getJsonAJ("/sysadmin/savePhotoByGalleryId",{photo_arry:3},"添加成功！")
+    function delPhotoInDropZone(){
+        $(".dz-complete").remove();
+        photo_arry=[];
+        loadPhotoDtl($("#hd_gallery_id").val());
     }
 
 </script>

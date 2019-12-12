@@ -228,4 +228,4 @@
 <#--相册页面js-->
 <script src="/static/js/sys.gallery.js"></script>
 
-
+<input type="hidden" id="hd_gallery_id" />

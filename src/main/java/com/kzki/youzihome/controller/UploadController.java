@@ -29,12 +29,13 @@ public class UploadController {
         String logImageName = UUID.randomUUID().toString()+ suffix;
         /* 构建图片保存的目录 */
         SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd/HH");
-        String logoPathDir = "/static/gallery";//+ dateformat.format(System.currentTimeMillis());
+        String logoPathDir = "/static/gallery/"+request.getParameter("gallery_id");//+ dateformat.format(System.currentTimeMillis());
         /* 返回相对路径给客户端 */
         uploadResp.setName(logoPathDir+"/"+logImageName);
 
         /* 得到图片保存目录的真实路径 */
-        String logoRealPathDir = request.getSession().getServletContext().getRealPath(logoPathDir);
+       // String logoRealPathDir = request.getSession().getServletContext().getRealPath(logoPathDir);
+        String logoRealPathDir =System.getProperty("user.dir")+"/src/main/resources"+logoPathDir;
         /**根据真实路径创建目录**/
         File logoSaveFile = new File(logoRealPathDir);
         if(!logoSaveFile.exists()) logoSaveFile.mkdirs();
