@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d1bc8f9-108b-4b15-89e2-67f802a212d8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kzki/youzihome/controller/SysAdmGalleryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kzki/youzihome/controller/SysAdmGalleryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kzki/youzihome/controller/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kzki/youzihome/controller/UploadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/GalleryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/GalleryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/sys.gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/sys.gallery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sysadmin/gallery.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sysadmin/gallery.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sysadmin/photo.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sysadmin/photo.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kzki/youzihome/controller/UploadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kzki/youzihome/controller/UploadController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/sys.gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/sys.gallery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/sysadmin/gallery.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/sysadmin/gallery.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/sysadmin/photo.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/sysadmin/photo.ftl" afterDir="false" />
-    </list>
+    <list default="true" id="5d1bc8f9-108b-4b15-89e2-67f802a212d8" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +17,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/sysadmin/photo.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
+            <state relative-caret-position="256">
               <caret line="291" column="48" selection-start-line="291" selection-start-column="48" selection-end-line="291" selection-end-column="48" />
               <folding>
                 <element signature="n#h4#0;n#!!top" />
@@ -143,7 +131,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="45" />
     <option name="y" value="13" />
     <option name="width" value="1172" />
@@ -332,7 +320,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576129267388" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576222962053" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -399,11 +387,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14677000" />
+    <option name="totallyTimeSpent" value="15872000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="13" width="1172" height="688" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26528776" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -415,7 +402,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4995417" visible="true" weight="0.3267148" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4995417" weight="0.3267148" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49862513" weight="0.30144405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -629,7 +616,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/sysadmin/photo.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="256">
           <caret line="291" column="48" selection-start-line="291" selection-start-column="48" selection-end-line="291" selection-end-column="48" />
           <folding>
             <element signature="n#h4#0;n#!!top" />
