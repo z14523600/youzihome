@@ -55,7 +55,7 @@
         </li>
         <#--留言板-->
         <li class="">
-            <a href="gallery.html">
+            <a href="javascript:void();">
                 <i class="menu-icon fa fa-pencil-square-o"></i>
                 <span class="menu-text"> 留言板 </span>
             </a>
@@ -74,7 +74,7 @@
 
         <#--个人中心-->
         <li class="">
-            <a href="gallery.html">
+            <a href="javascript:void();" onclick="getHtmlAJ('main_content','/sysadmin/myspace','');">
                 <i class="menu-icon fa fa-weibo"></i>
                 <span class="menu-text"> 个人中心 </span>
             </a>
@@ -83,7 +83,7 @@
         </li>
         <#--用户管理-->
         <li class="">
-            <a href="gallery.html">
+            <a href="javascript:void();" onclick="getHtmlAJ('main_content','/sysadmin/user','');">
                 <i class="menu-icon fa fa-users"></i>
                 <span class="menu-text"> 用户管理 </span>
             </a>

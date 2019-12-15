@@ -153,62 +153,62 @@
                             <td>${gl.aboutdate_std}</td>
 
                             <td class="hidden-480">
-                                <span class="label label-sm label-warning">Expiring</span>
-                            </td>
+                        <span class="label label-sm label-warning">Expiring</span>
+                        </td>
 
-                            <td>
-                                <div class="hidden-sm hidden-xs btn-group">
-                                    <#--<button class="btn btn-xs btn-success">
-                                        <i class="ace-icon fa fa-check bigger-120"></i>
-                                    </button>-->
+                        <td>
+                            <div class="hidden-sm hidden-xs btn-group">
+                            <#--<button class="btn btn-xs btn-success">
+                                <i class="ace-icon fa fa-check bigger-120"></i>
+                            </button>-->
 
-                                    <button class="btn btn-xs btn-info" onclick="loadPhotoDtl(${gl.gallery_id})">
-                                        <i class="ace-icon fa fa-search bigger-120"></i>
+                                <button class="btn btn-xs btn-info" onclick="loadPhotoDtl(${gl.gallery_id})">
+                                    <i class="ace-icon fa fa-search bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-warning">
+                                    <i class="ace-icon fa fa-flag bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-danger">
+                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                </button>
+                            </div>
+
+                            <div class="hidden-md hidden-lg">
+                                <div class="inline pos-rel">
+                                    <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
+                                        <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
                                     </button>
 
-                                    <button class="btn btn-xs btn-warning">
-                                        <i class="ace-icon fa fa-flag bigger-120"></i>
-                                    </button>
-
-                                    <button class="btn btn-xs btn-danger">
-                                        <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                    </button>
-                                </div>
-
-                                <div class="hidden-md hidden-lg">
-                                    <div class="inline pos-rel">
-                                        <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
-                                            <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
-                                        </button>
-
-                                        <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                                            <li>
-                                                <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+                                        <li>
+                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
                                                     <span class="blue">
                                                         <i class="ace-icon fa fa-search-plus bigger-120"></i>
                                                     </span>
-                                                </a>
-                                            </li>
+                                            </a>
+                                        </li>
 
-                                            <li>
-                                                <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                        <li>
+                                            <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
                                                     <span class="green">
                                                         <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
                                                     </span>
-                                                </a>
-                                            </li>
+                                            </a>
+                                        </li>
 
-                                            <li>
-                                                <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                        <li>
+                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
                                                     <span class="red">
                                                         <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                                     </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
-                            </td>
+                            </div>
+                        </td>
                         </tr>
                         </#list>
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+	
+	<!-- 获取用户列表 -->
+	<select id="getUserList" parameterType="HashMap" resultType="HashMap">
+		select *,DATE_FORMAT(birthday,'%Y %m') as birthday_std from sys_user where state=1;
+	</select>
+
+	<!-- 根据用户id密码获取获取用户 -->
+	<select id="getUserInfoByAcess" parameterType="HashMap" resultType="HashMap">
+		select * from sys_user where user_name=#{user_name} and pwd=#{pwd};
+	</select>
+
+	<!-- 判断用户名是否存在 -->
+	<select id="isUserNameExist" parameterType="HashMap" resultType="HashMap">
+		select * from sys_user where user_id=#{user_id};
+	</select>
+	
+</mapper>

@@ -19,6 +19,7 @@ public class BaseServiceImpl implements BaseService {
     private DaoSupport daoSupport;
 
     //查询数据集合
+    @Override
     public ArrayList<HashMap> getDataList(String mapperStr,DataMap dm){
         ArrayList<HashMap> datalist=new ArrayList<HashMap>();
         try {
@@ -29,6 +30,19 @@ public class BaseServiceImpl implements BaseService {
         }
         return datalist;
     }
+
+
+   /* public Object getDataScalar(String mapperStr,DataMap dm){
+        Object object=null;
+        try {
+            object =  daoSupport.selectOne(mapperStr, dm);
+        }catch(Exception e)
+        {
+
+        }
+        return object;
+    }
+        */
 
     @Override
     public boolean executeBaseData(String mapperStr,DataMap dm,String optType) {
