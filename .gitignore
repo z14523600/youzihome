@@ -15,6 +15,7 @@ foo.txt
 # 忽略所有.o和 .a文件.
 
 /target
+/gallery
 
 *.[oa]
 配置语法：
